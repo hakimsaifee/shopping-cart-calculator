@@ -13,10 +13,12 @@ public class ChecoutProcessorTest {
 	/**
 	 * Scenario 1:
 	 * 
-	 * This is the happy scenario. Apple and Banana are having special offers,
-	 * but pear is having none. Apple : 5 price/unit ,special offer 12 for 3
-	 * Banana : 4 price/unit , special offer 10 for 3 Pear : 3 price/unit , no
-	 * offer;
+	 * This is the happy scenario. 
+	 * Apple and Banana are having special offers,
+	 * but pear is having none.
+	 *  Apple : 5 price/unit ,special offer 12 for 3
+	 * Banana : 4 price/unit , special offer 10 for 3 
+	 * Pear : 3 price/unit , no offer;
 	 */
 	@Test
 	public void testCheckoutProcess_Case_1() {
@@ -102,7 +104,7 @@ public class ChecoutProcessorTest {
 	/**
 	 * Scenario : 4 - Shop 6 Apples
 	 * 
-	 * Output for Apple should be : $12 for 3 unit so it will give price $24 by appliying offer on it.
+	 * Output for Apple should be : $12 for 3 unit so it will give price $24 by applying offer on it.
 	 */
 	@Test
 	public void testCheckoutProcess_Case_4() {
@@ -117,6 +119,33 @@ public class ChecoutProcessorTest {
 		cart.addItem(BarCodeConstants.APPLE_BAR_CODE);
 		cart.addItem(BarCodeConstants.APPLE_BAR_CODE);
 		cart.addItem(BarCodeConstants.APPLE_BAR_CODE);
+		
+		
+		
+		// Checkout the cart.
+		CheckoutProcessor checkoutProcessor = new CheckoutProcessor();
+		Bill bill = checkoutProcessor.checkout(cart.getShoppingCart());
+		
+		// Now print the bill.
+		bill.printBill();
+	}
+	
+	
+	/**
+	 * Scenario : 5 - Add 2 Apples and Remove 1 Apple from the Cart.
+	 * 
+	 */
+	@Test
+	public void testCheckoutProcess_Case_5() {
+		
+		System.out.println("Scenario 5 : ");
+		
+		// Create a cart and add items into it using bar code.
+		Cart cart = new CartMaker();
+		cart.addItem(BarCodeConstants.APPLE_BAR_CODE);
+		cart.addItem(BarCodeConstants.APPLE_BAR_CODE);
+
+		cart.removeItem(BarCodeConstants.APPLE_BAR_CODE);
 		
 		
 		

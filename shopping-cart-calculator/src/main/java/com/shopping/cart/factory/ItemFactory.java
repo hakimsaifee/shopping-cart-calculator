@@ -8,6 +8,7 @@ import com.shopping.cart.model.SpecialOffer;
  * @author Hakim.s
  *
  * A factory class which will take bar code and return the Item.
+ * A temporary class which is not persisting items, later we can persist it to db.
  */
 public class ItemFactory {
 
